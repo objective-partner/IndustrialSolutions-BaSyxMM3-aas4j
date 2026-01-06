@@ -24,6 +24,10 @@ import java.nio.file.Paths;
 import java.util.Set;
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
+import org.eclipse.digitaltwin.aas4j.v3.dataformat.core.SerializationException;
+import org.eclipse.digitaltwin.aas4j.v3.model.AssetAdministrationShell;
+import org.eclipse.digitaltwin.aas4j.v3.model.Environment;
+import org.eclipse.digitaltwin.aas4j.v3.model.impl.DefaultEnvironment;
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.junit.runner.RunWith;
@@ -58,6 +62,16 @@ public class XmlValidationTest {
   }
 
   @Test
+  public void validateMine() throws SerializationException {
+    AssetAdministrationShell newShell = AasArgumentsProvider.createNewShell();
+    Environment environment =
+        new DefaultEnvironment.Builder().assetAdministrationShells(newShell).build();
+    String xml = new XmlSerializer().write(environment);
+    Set<String> errors = validator.validateSchema(xml);
+    assertTrue(errors.isEmpty());
+  }
+
+  @Test
   @Parameters({
     "src/test/resources/invalidXmlExample.xml",
     "src/test/resources/ServoDCMotor_invalid.xml"
@@ -66,6 +80,16 @@ public class XmlValidationTest {
     Set<String> errors = validateXmlFile(file);
     logErrors(file, errors);
     assertEquals(1, errors.size());
+  }
+
+  @Test
+  @Parameters({
+    "src/test/resources/test.xml",
+  })
+  public void validateTestXml(String file) throws IOException {
+    Set<String> errors = validateXmlFile(file);
+    logErrors(file, errors);
+    assertTrue(errors.isEmpty());
   }
 
   private void logErrors(String validatedFileName, Set<String> errors) {

@@ -24,7 +24,13 @@ import org.eclipse.digitaltwin.aas4j.v3.dataformat.xml.internal.AasXmlNamespaceC
 import org.eclipse.digitaltwin.aas4j.v3.model.File;
 import org.eclipse.digitaltwin.aas4j.v3.model.SpecificAssetId;
 
-@JsonPropertyOrder({"assetKind", "globalAssetId", "specificAssetIds", "defaultThumbnail"})
+@JsonPropertyOrder({
+  "assetKind",
+  "globalAssetId",
+  "specificAssetIds",
+  "assetType",
+  "defaultThumbnail"
+})
 public interface AssetInformationMixin {
   @JacksonXmlProperty(namespace = AasXmlNamespaceContext.AAS_URI, localName = "specificAssetId")
   @JacksonXmlElementWrapper(
@@ -39,7 +45,6 @@ public interface AssetInformationMixin {
   public void setSpecificAssetIds(List<SpecificAssetId> specificAssetIds);
 
   @JacksonXmlProperty(namespace = AasXmlNamespaceContext.AAS_URI, localName = "globalAssetId")
-  @JacksonXmlElementWrapper(namespace = AasXmlNamespaceContext.AAS_URI, localName = "globalAssetId")
   public String getGlobalAssetId();
 
   @JacksonXmlProperty(namespace = AasXmlNamespaceContext.AAS_URI, localName = "defaultThumbnail")

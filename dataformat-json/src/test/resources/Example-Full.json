@@ -50,6 +50,12 @@
       },
       "id": "https://acplt.org/Test_AssetAdministrationShell",
       "idShort": "TestAssetAdministrationShell",
+      "displayName": [
+        {
+          "language": "en-us",
+          "text": "Test AssetAdministrationShell"
+        }
+      ],
       "description": [
         {
           "language": "en-us",

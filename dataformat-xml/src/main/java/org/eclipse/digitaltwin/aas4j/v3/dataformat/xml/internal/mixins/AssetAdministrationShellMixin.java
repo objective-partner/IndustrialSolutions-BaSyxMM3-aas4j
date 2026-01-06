@@ -23,15 +23,13 @@ import org.eclipse.digitaltwin.aas4j.v3.dataformat.xml.internal.AasXmlNamespaceC
 import org.eclipse.digitaltwin.aas4j.v3.model.Reference;
 
 @JsonPropertyOrder({
-  "extension",
+  "extensions",
   "category",
   "idShort",
-  "displayNames",
+  "displayName",
   "description",
-  "checksum",
   "administration",
   "id",
-  "dataSpecifications",
   "embeddedDataSpecifications",
   "derivedFrom",
   "assetInformation",
@@ -41,6 +39,12 @@ public interface AssetAdministrationShellMixin {
 
   @JacksonXmlProperty(namespace = AasXmlNamespaceContext.AAS_URI, localName = "id")
   public String getID();
+
+  @JacksonXmlProperty(namespace = AasXmlNamespaceContext.AAS_URI, localName = "derivedFrom")
+  Reference getDerivedFrom();
+
+  @JacksonXmlProperty(namespace = AasXmlNamespaceContext.AAS_URI, localName = "derivedFrom")
+  void setDerivedFrom(Reference derivedFrom);
 
   @JacksonXmlElementWrapper(namespace = AasXmlNamespaceContext.AAS_URI, localName = "submodels")
   @JacksonXmlProperty(namespace = AasXmlNamespaceContext.AAS_URI, localName = "reference")

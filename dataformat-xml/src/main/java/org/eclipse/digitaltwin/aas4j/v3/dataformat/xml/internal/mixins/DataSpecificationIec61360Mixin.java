@@ -48,7 +48,6 @@ import org.eclipse.digitaltwin.aas4j.v3.model.ValueList;
   "valueFormat",
   "valueList",
   "value",
-  "valueId",
   "levelType"
 })
 public interface DataSpecificationIec61360Mixin {
@@ -103,9 +102,6 @@ public interface DataSpecificationIec61360Mixin {
 
   @JacksonXmlProperty(namespace = AasXmlNamespaceContext.AAS_URI, localName = "valueList")
   public void setValueList(ValueList valueList);
-
-  @JacksonXmlProperty(namespace = AasXmlNamespaceContext.AAS_URI, localName = "valueId")
-  public Reference getValueId();
 
   @JacksonXmlProperty(namespace = AasXmlNamespaceContext.AAS_URI, localName = "dataType")
   @JsonSerialize(using = EnumSerializer.class)

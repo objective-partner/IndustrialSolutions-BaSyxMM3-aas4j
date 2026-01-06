@@ -26,19 +26,17 @@ import org.eclipse.digitaltwin.aas4j.v3.dataformat.xml.internal.serialization.Su
 import org.eclipse.digitaltwin.aas4j.v3.model.SubmodelElement;
 
 @JsonPropertyOrder({
-  "hasExtension",
+  "extensions",
   "category",
   "idShort",
-  "displayNames",
+  "displayName",
   "description",
-  "checksum",
   "administration",
   "id",
   "kind",
   "semanticId",
   "supplementalSemanticIds",
-  "qualifier",
-  "dataSpecifications",
+  "qualifiers",
   "embeddedDataSpecifications",
   "submodelElements"
 })

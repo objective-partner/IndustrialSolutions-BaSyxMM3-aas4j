@@ -23,9 +23,10 @@ import java.util.List;
 import org.eclipse.digitaltwin.aas4j.v3.dataformat.xml.internal.AasXmlNamespaceContext;
 import org.eclipse.digitaltwin.aas4j.v3.dataformat.xml.internal.deserialization.KeysDeserializer;
 import org.eclipse.digitaltwin.aas4j.v3.model.Key;
+import org.eclipse.digitaltwin.aas4j.v3.model.Reference;
 import org.eclipse.digitaltwin.aas4j.v3.model.ReferenceTypes;
 
-@JsonPropertyOrder({"type", "key"})
+@JsonPropertyOrder({"type", "referredSemanticId", "keys"})
 public interface ReferenceMixin {
   @JacksonXmlProperty(namespace = AasXmlNamespaceContext.AAS_URI, localName = "key")
   @JacksonXmlElementWrapper(namespace = AasXmlNamespaceContext.AAS_URI, localName = "keys")
@@ -41,4 +42,10 @@ public interface ReferenceMixin {
 
   @JacksonXmlProperty(namespace = AasXmlNamespaceContext.AAS_URI, localName = "type")
   void setType(ReferenceTypes types);
+
+  @JacksonXmlProperty(namespace = AasXmlNamespaceContext.AAS_URI, localName = "referredSemanticId")
+  Reference getReferredSemanticId();
+
+  @JacksonXmlProperty(namespace = AasXmlNamespaceContext.AAS_URI, localName = "referredSemanticId")
+  void setReferredSemanticId(Reference referredSemanticId);
 }

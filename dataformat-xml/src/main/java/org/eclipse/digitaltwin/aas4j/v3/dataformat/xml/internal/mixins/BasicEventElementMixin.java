@@ -15,28 +15,14 @@
  */
 package org.eclipse.digitaltwin.aas4j.v3.dataformat.xml.internal.mixins;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 import com.fasterxml.jackson.dataformat.xml.annotation.JacksonXmlProperty;
-import java.util.List;
 import org.eclipse.digitaltwin.aas4j.v3.dataformat.xml.internal.AasXmlNamespaceContext;
 import org.eclipse.digitaltwin.aas4j.v3.model.Reference;
 
-@JsonPropertyOrder({
-  "dataSpecifications",
-  "embeddedDataSpecifications",
-  "version",
-  "revision",
-  "creator",
-  "templateId"
-})
-public interface AdministrativeInformationMixin {
-  @JsonIgnore
-  public List<Reference> getDataSpecifications();
+public interface BasicEventElementMixin {
+  @JacksonXmlProperty(namespace = AasXmlNamespaceContext.AAS_URI, localName = "observed")
+  void setObserved(Reference observed);
 
-  @JacksonXmlProperty(namespace = AasXmlNamespaceContext.AAS_URI, localName = "creator")
-  Reference getCreator();
-
-  @JacksonXmlProperty(namespace = AasXmlNamespaceContext.AAS_URI, localName = "creator")
-  void setCreator(Reference creator);
+  @JacksonXmlProperty(namespace = AasXmlNamespaceContext.AAS_URI, localName = "messageBroker")
+  void setMessageBroker(Reference messageBroker);
 }

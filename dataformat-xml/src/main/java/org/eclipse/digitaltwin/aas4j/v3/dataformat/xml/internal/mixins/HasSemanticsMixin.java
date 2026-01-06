@@ -27,6 +27,9 @@ import org.eclipse.digitaltwin.aas4j.v3.model.Reference;
 @JsonPropertyOrder("semanticId, supplementalSemanticIds")
 public interface HasSemanticsMixin {
   @JacksonXmlProperty(namespace = AasXmlNamespaceContext.AAS_URI, localName = "semanticId")
+  Reference getSemanticId();
+
+  @JacksonXmlProperty(namespace = AasXmlNamespaceContext.AAS_URI, localName = "semanticId")
   void setSemanticId(Reference semanticId);
 
   @JsonDeserialize(using = ReferencesDeserializer.class)

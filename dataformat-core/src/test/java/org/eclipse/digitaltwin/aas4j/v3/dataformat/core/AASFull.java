@@ -104,6 +104,11 @@ public class AASFull {
         .id("https://acplt.org/Test_AssetAdministrationShell")
         .administration(
             new DefaultAdministrativeInformation.Builder().version("0").revision("9").build())
+        .displayName(
+            new DefaultLangStringNameType.Builder()
+                .language("en-us")
+                .text("Test AssetAdministrationShell")
+                .build())
         .derivedFrom(
             new DefaultReference.Builder()
                 .keys(

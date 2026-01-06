@@ -5,6 +5,12 @@
   <aas:assetAdministrationShells>
     <aas:assetAdministrationShell>
       <aas:idShort>TestAssetAdministrationShell</aas:idShort>
+      <aas:displayName>
+        <aas:langStringNameType>
+          <aas:language>en-us</aas:language>
+          <aas:text>Test AssetAdministrationShell</aas:text>
+        </aas:langStringNameType>
+      </aas:displayName>
       <aas:description>
         <aas:langStringTextType>
           <aas:language>en-us</aas:language>

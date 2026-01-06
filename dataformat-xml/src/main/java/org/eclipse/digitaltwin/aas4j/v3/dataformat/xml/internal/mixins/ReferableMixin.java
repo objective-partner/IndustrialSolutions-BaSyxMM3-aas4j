@@ -28,14 +28,7 @@ import org.eclipse.digitaltwin.aas4j.v3.dataformat.xml.internal.serialization.La
 import org.eclipse.digitaltwin.aas4j.v3.model.LangStringNameType;
 import org.eclipse.digitaltwin.aas4j.v3.model.LangStringTextType;
 
-@JsonPropertyOrder({
-  "hasExtensions",
-  "category",
-  "idShort",
-  "displayName",
-  "description",
-  "checksum"
-})
+@JsonPropertyOrder({"extensions", "category", "idShort", "displayName", "description"})
 public interface ReferableMixin {
   @JacksonXmlProperty(namespace = AasXmlNamespaceContext.AAS_URI, localName = "description")
   @JsonSerialize(using = LangStringsTextTypeSerializer.class)
