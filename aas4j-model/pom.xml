@@ -6,11 +6,10 @@
 	<parent>
         <groupId>org.eclipse.digitaltwin.aas4j</groupId>
         <artifactId>aas4j-dataformat-parent</artifactId>
-        <version>${revision}</version>
+        <version>${revision}${sha1}${changelist}</version>
     </parent>
 
     <artifactId>aas4j-model</artifactId>
-    <version>${model.version}</version>
 
     <!-- Description, name, URL, developers, and scm are required by Sonatype for the Central Repository release -->
     <description>This project includes a Java representation of the classes defined in the Asset Administration Shell ontology.</description>

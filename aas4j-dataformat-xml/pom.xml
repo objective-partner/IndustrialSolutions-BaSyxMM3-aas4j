@@ -6,19 +6,21 @@
     <parent>
         <groupId>org.eclipse.digitaltwin.aas4j</groupId>
         <artifactId>aas4j-dataformat-parent</artifactId>
-        <version>${revision}</version>
+        <version>${revision}${sha1}${changelist}</version>
     </parent>
     <artifactId>aas4j-dataformat-xml</artifactId>
     <name>Asset Administration Shell XML-Serializer</name>
 
     <dependencies>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>org.eclipse.digitaltwin.aas4j</groupId>
             <artifactId>aas4j-dataformat-core</artifactId>
+          <version>${project.version}</version>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>org.eclipse.digitaltwin.aas4j</groupId>
             <artifactId>aas4j-dataformat-core</artifactId>
+          <version>${project.version}</version>
             <classifier>tests</classifier>
             <scope>test</scope>
         </dependency>
@@ -63,7 +65,8 @@
             <artifactId>slf4j-api</artifactId>
         </dependency>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>org.eclipse.digitaltwin.aas4j</groupId>
+          <version>${project.version}</version>
             <artifactId>aas4j-model</artifactId>
         </dependency>
         <dependency>

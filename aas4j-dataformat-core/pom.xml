@@ -6,15 +6,17 @@
     <parent>
         <groupId>org.eclipse.digitaltwin.aas4j</groupId>
         <artifactId>aas4j-dataformat-parent</artifactId>
-        <version>${revision}</version>
+        <version>${revision}${sha1}${changelist}</version>
     </parent>
     <artifactId>aas4j-dataformat-core</artifactId>
     <name>Asset Administration Shell Serializer Core</name>
 
     <dependencies>
         <dependency>
-            <groupId>${project.groupId}</groupId>
+            <groupId>org.eclipse.digitaltwin.aas4j</groupId>
             <artifactId>aas4j-model</artifactId>
+          <version>${project.version}</version>
+
         </dependency>
         <dependency>
             <groupId>com.fasterxml.jackson.core</groupId>

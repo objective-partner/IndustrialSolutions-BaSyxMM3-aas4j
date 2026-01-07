@@ -27,21 +27,19 @@
     <modelVersion>4.0.0</modelVersion>
     <groupId>org.eclipse.digitaltwin.aas4j</groupId>
     <artifactId>aas4j-dataformat-parent</artifactId>
-    <version>${revision}</version>
+    <version>${revision}${sha1}${changelist}</version>
     <packaging>pom</packaging>
     <modules>
-        <module>model</module>
-        <module>dataformat-aasx</module>
-        <module>dataformat-core</module>
-        <module>dataformat-json</module>
-        <module>dataformat-xml</module>
+        <module>aas4j-model</module>
+        <module>aas4j-dataformat-aasx</module>
+        <module>aas4j-dataformat-core</module>
+        <module>aas4j-dataformat-json</module>
+        <module>aas4j-dataformat-xml</module>
     </modules>
     <properties>
-        <revision.major>1</revision.major>
-        <revision.minor>0</revision.minor>
-        <revision.patch>5</revision.patch>
-        <revision>${revision.major}.${revision.minor}.${revision.patch}</revision>
-        <model.version>1.0.5</model.version>
+        <revision>1.0.5</revision>
+        <sha1/>
+        <changelist>-SNAPSHOT</changelist>
 
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
@@ -248,7 +246,7 @@
                             </execution>
                         </executions>
                     </plugin>
-                    
+
                     <!-- Upload to Maven Central -->
                     <plugin>
                         <groupId>org.sonatype.plugins</groupId>
@@ -312,32 +310,6 @@
                 <artifactId>hamcrest</artifactId>
                 <version>${hamcrest.version}</version>
                 <scope>test</scope>
-            </dependency>
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>aas4j-dataformat-core</artifactId>
-                <version>${revision}</version>
-            </dependency>
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>aas4j-dataformat-xml</artifactId>
-                <version>${revision}</version>
-            </dependency>
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>aas4j-dataformat-json</artifactId>
-                <version>${revision}</version>
-            </dependency>
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>aas4j-model</artifactId>
-                <version>${model.version}</version>
-            </dependency>
-            <dependency>
-                <groupId>${project.groupId}</groupId>
-                <artifactId>aas4j-dataformat-core</artifactId>
-                <classifier>tests</classifier>
-                <version>${revision}</version>
             </dependency>
             <dependency>
                 <groupId>org.apache.poi</groupId>
@@ -426,13 +398,15 @@
         </dependencies>
     </dependencyManagement>
 
-    <distributionManagement>
-        <repository>
-            <id>github</id>
-            <name>GitHub Apache Maven Packages</name>
-            <url>https://maven.pkg.github.com/${env.GITHUB_REPOSITORY}</url>
-        </repository>
-    </distributionManagement>
+  <distributionManagement>
+    <repository>
+      <name>objectivepartner-maven-central-store</name>
+      <url>
+        https://objectivepartner-339713129959.d.codeartifact.eu-central-1.amazonaws.com/maven/maven-central-store/
+      </url>
+      <id>objectivepartner-maven-central-store</id>
+    </repository>
+  </distributionManagement>
 
     <licenses>
         <license>
